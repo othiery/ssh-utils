@@ -39,6 +39,15 @@ public class Executor {
 						UnixOptionEnum.RECURSIVE,
 						dir));
 	}
+	
+	public String cp(String source, String destination) throws IOException {
+		return execute(
+				UnixCommandBuilder.build(
+						UnixCommandEnum.CP, 
+						source,
+						destination));
+	}
+
 
 	public void close() throws IOException {
 		sshClient.close();

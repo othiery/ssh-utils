@@ -34,6 +34,16 @@ public class UnixCommandBuilder {
 	}
 
 	public static String build(
+			final UnixCommandEnum unixCommandEnum,
+			final String argument1, 
+			final String argument2) {
+	
+		return unixCommandEnum.getCommand() + " " + 
+							argument1 + " " + argument2;
+		
+	}
+
+	public static String build(
 			final UnixCommandEnum unixCommandEnum) {
 	
 		return unixCommandEnum.getCommand() ;

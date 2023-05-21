@@ -52,7 +52,9 @@ public class TomcatExecutor extends Executor {
 	}
 	
 	public String deployWar() throws IOException {
-		return execute("cp ./deployments/installer.war /var/lib/tomcat9/webapps/installer");
+		return super.cp(
+				"./deployments/installer.war", 
+				"/var/lib/tomcat9/webapps/installer");
 	}
 	
 	
