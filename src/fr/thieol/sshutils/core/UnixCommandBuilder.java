@@ -12,6 +12,17 @@ public class UnixCommandBuilder {
 				argument;
 		
 	}
+	
+	public static String build(
+			final UnixCommandEnum unixCommandEnum,
+			final UnixOptionEnum unixOptionEnum
+			) {
+	
+		return unixCommandEnum.getCommand() + " --" + 
+				unixOptionEnum.getOption();
+		
+	}
+
 
 	public static String build(
 			final UnixCommandEnum unixCommandEnum,

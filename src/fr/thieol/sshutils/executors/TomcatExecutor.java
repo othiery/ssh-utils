@@ -4,6 +4,9 @@ import java.io.IOException;
 
 import fr.thieol.sshutils.core.Executor;
 import fr.thieol.sshutils.core.SshProperties;
+import fr.thieol.sshutils.core.UnixCommandBuilder;
+import fr.thieol.sshutils.core.UnixCommandEnum;
+import fr.thieol.sshutils.core.UnixPipeBuilder;
 
 public class TomcatExecutor extends Executor {
 
@@ -12,20 +15,32 @@ public class TomcatExecutor extends Executor {
 	}
 
 	public String getTomcatStatus() throws IOException {
-		String result = execute("systemctl list-unit-files --type service -all | grep tomcat9.service");
+		String result = execute(
+				UnixPipeBuilder.build(
+						"systemctl list-unit-files --type service -all", 
+						UnixCommandBuilder.build(
+								UnixCommandEnum.GREP,  "tomcat9.service")));
 		return result;
 	
 	}
 	
 	public boolean isTomcatRunning() throws IOException {
-		 String result = execute("ps aux | grep tomcat9");
+		 String result = execute(
+				 UnixPipeBuilder.build(
+						 UnixCommandBuilder.build(
+									UnixCommandEnum.PS,  "aux"), 
+						  "grep tomcat9"));
 		 if ( result.length() > 0 ) return true;
 		 return false;
 	}
 
 	
 	public void stopTomcat(String password) throws IOException {
-		 execute("echo " + password + " | sudo -S systemctl stop tomcat9.service");
+		 execute(
+				 UnixPipeBuilder.build(
+						 UnixCommandBuilder.build(
+									UnixCommandEnum.ECHO,  password), 
+						 "sudo -S systemctl stop tomcat9.service"));
 
 		
 	}

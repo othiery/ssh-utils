@@ -2,7 +2,9 @@ package fr.thieol.sshutils.core;
 
 public enum UnixOptionEnum {
 	
-	RECURSIVE("recursive");
+
+	RECURSIVE("recursive"),
+	SHELL("shell");
 	
 	private String option;
 	
