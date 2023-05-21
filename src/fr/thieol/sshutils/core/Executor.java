@@ -17,11 +17,11 @@ public class Executor {
 	}
 
 	public String pwd() throws IOException {
-		return execute("pwd");
+		return execute(UnixCommand.PWD.getCommand());
 	}
 
 	public String ls() throws IOException {
-		return execute("ls");
+		return execute(UnixCommand.LS.getCommand());
 	}
 
 	public String mkdir(String dir) throws IOException {
@@ -29,7 +29,7 @@ public class Executor {
 	}
 
 	public String rmdir(String dir) throws IOException {
-		return execute("rm -r " + dir);
+		return execute(UnixCommand.RM.getCommand()  + " -r " + dir);
 	}
 
 	public void close() throws IOException {
