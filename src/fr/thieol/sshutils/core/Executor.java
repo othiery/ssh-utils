@@ -25,7 +25,7 @@ public class Executor {
 	}
 
 	public String mkdir(String dir) throws IOException {
-		return execute("mkdir " + dir);
+		return execute(UnixCommand.MKDIR.getCommand() + " " + dir);
 	}
 
 	public String rmdir(String dir) throws IOException {

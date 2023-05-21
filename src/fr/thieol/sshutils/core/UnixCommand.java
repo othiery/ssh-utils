@@ -2,6 +2,7 @@ package fr.thieol.sshutils.core;
 
 public enum UnixCommand {
 	
+	MKDIR("mkdir"),
 	PWD("pwd"),
 	RM("rm"),
 	LS("ls");
