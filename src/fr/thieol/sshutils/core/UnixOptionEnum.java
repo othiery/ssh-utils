@@ -1,12 +1,12 @@
 package fr.thieol.sshutils.core;
 
-public enum UnixOption {
+public enum UnixOptionEnum {
 	
 	RECURSIVE("recursive");
 	
 	private String option;
 	
-	UnixOption(String option) {
+	UnixOptionEnum(String option) {
 		this.option = option;
 	}
 	

@@ -17,19 +17,19 @@ public class Executor {
 	}
 
 	public String pwd() throws IOException {
-		return execute(UnixCommand.PWD.getCommand());
+		return execute(UnixCommandEnum.PWD.getCommand());
 	}
 
 	public String ls() throws IOException {
-		return execute(UnixCommand.LS.getCommand());
+		return execute(UnixCommandEnum.LS.getCommand());
 	}
 
 	public String mkdir(String dir) throws IOException {
-		return execute(UnixCommand.MKDIR.getCommand() + " " + dir);
+		return execute(UnixCommandEnum.MKDIR.getCommand() + " " + dir);
 	}
 
 	public String rmdir(String dir) throws IOException {
-		return execute(UnixCommand.RM.getCommand()  + " -r " + dir);
+		return execute(UnixCommandEnum.RM.getCommand()  + " -r " + dir);
 	}
 
 	public void close() throws IOException {

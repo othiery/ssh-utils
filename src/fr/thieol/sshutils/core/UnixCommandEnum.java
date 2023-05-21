@@ -1,6 +1,6 @@
 package fr.thieol.sshutils.core;
 
-public enum UnixCommand {
+public enum UnixCommandEnum {
 	
 	MKDIR("mkdir"),
 	PWD("pwd"),
@@ -9,7 +9,7 @@ public enum UnixCommand {
 	
 	private String command;
 	
-	UnixCommand(String command) {
+	UnixCommandEnum(String command) {
 		this.command = command;
 	}
 	
