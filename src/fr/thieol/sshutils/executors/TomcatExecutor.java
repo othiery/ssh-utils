@@ -7,6 +7,7 @@ import fr.thieol.sshutils.core.SshProperties;
 import fr.thieol.sshutils.core.UnixCommandBuilder;
 import fr.thieol.sshutils.core.UnixCommandEnum;
 import fr.thieol.sshutils.core.UnixPipeBuilder;
+import fr.thieol.sshutils.core.UnixSudoCommandBuilder;
 
 public class TomcatExecutor extends Executor {
 
@@ -29,7 +30,9 @@ public class TomcatExecutor extends Executor {
 				 UnixPipeBuilder.build(
 						 UnixCommandBuilder.build(
 									UnixCommandEnum.PS,  "aux"), 
-						  "grep tomcat9"));
+						 UnixCommandBuilder.build(
+									UnixCommandEnum.GREP,  "tomcat9"))); 
+
 		 if ( result.length() > 0 ) return true;
 		 return false;
 	}
@@ -46,7 +49,11 @@ public class TomcatExecutor extends Executor {
 	}
 
 	public void startTomcat(String password) throws IOException {
-		 execute("echo " + password + " | sudo -S systemctl start tomcat9.service");
+		 execute(
+				 UnixPipeBuilder.build(
+					UnixCommandBuilder.build(
+						 UnixCommandEnum.ECHO,  password),  
+					UnixSudoCommandBuilder.build("systemctl start tomcat9.service")));
 
 		
 	}

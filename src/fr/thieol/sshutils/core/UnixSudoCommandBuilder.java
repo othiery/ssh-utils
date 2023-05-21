@@ -15,4 +15,13 @@ public class UnixSudoCommandBuilder {
 	}
 	
 
+	public static String build(
+			final String command) {
+	
+		return UnixCommandBuilder.build(UnixCommandEnum.SUDO, 
+				UnixOptionEnum.SHELL) + " " + 
+				command;
+		
+	}
+
 }
