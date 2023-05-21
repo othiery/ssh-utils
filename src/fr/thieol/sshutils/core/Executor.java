@@ -37,7 +37,7 @@ public class Executor {
 				UnixCommandBuilder.build(
 						UnixCommandEnum.RM, 
 						UnixOptionEnum.RECURSIVE,
-						dir);
+						dir));
 	}
 
 	public void close() throws IOException {

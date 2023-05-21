@@ -12,7 +12,7 @@ public class Example {
 				.user("olivier")
 				.password("olivier").build();
 		
-/*
+
 		TomcatExecutor executor = new TomcatExecutor(properties);
 		String home = executor.pwd();
 		home = executor.pwd();
@@ -24,7 +24,7 @@ public class Example {
 		executor.mkdir("temp");
 
 		executor.close();
-*/
+
 	}
 
 }

@@ -2,10 +2,15 @@ package fr.thieol.sshutils.core;
 
 public enum UnixCommandEnum {
 	
+	CP("cp"),
+	ECHO("echo"),
+	GREP("grep"),
+	LS("ls"),
 	MKDIR("mkdir"),
 	PWD("pwd"),
+	PS("ps"),
 	RM("rm"),
-	LS("ls");
+	SUDO("sudo");
 	
 	private String command;
 	
