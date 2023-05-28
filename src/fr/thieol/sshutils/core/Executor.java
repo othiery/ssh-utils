@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Executor {
 
-	private SshClient sshClient;
+	private SshClient sshClient; 
 
 	protected  Executor(SshProperties properties) throws IOException {
 		sshClient = new SshClient(properties);

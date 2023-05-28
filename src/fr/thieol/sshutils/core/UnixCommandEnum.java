@@ -9,8 +9,10 @@ public enum UnixCommandEnum {
 	MKDIR("mkdir"),
 	PWD("pwd"),
 	PS("ps"),
+	RMDIR("rm"),
 	RM("rm"),
-	SUDO("sudo");
+	SUDO("sudo"),
+	WHO("who")	;
 	
 	private String command;
 	
