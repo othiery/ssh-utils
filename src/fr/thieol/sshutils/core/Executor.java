@@ -18,23 +18,23 @@ public class Executor {
 
 	public String pwd() throws IOException {
 		return execute(
-				UnixCommandBuilder.build(UnixCommandEnum.PWD));
+				UnixCommandFormatter.build(UnixCommandEnum.PWD));
 	}
 
 	public String ls() throws IOException {
 		return execute(
-				UnixCommandBuilder.build(UnixCommandEnum.LS));
+				UnixCommandFormatter.build(UnixCommandEnum.LS));
 	}
 
 	public String mkdir(String dir) throws IOException {
 		return execute(
-				UnixCommandBuilder.build(
+				UnixCommandFormatter.build(
 						UnixCommandEnum.MKDIR, dir));
 	}
 
 	public String rmdir(String dir) throws IOException {
 		return execute(
-				UnixCommandBuilder.build(
+				UnixCommandFormatter.build(
 						UnixCommandEnum.RM, 
 						UnixOptionEnum.RECURSIVE,
 						dir));
@@ -42,7 +42,7 @@ public class Executor {
 	
 	public String cp(String source, String destination) throws IOException {
 		return execute(
-				UnixCommandBuilder.build(
+				UnixCommandFormatter.build(
 						UnixCommandEnum.CP, 
 						source,
 						destination));

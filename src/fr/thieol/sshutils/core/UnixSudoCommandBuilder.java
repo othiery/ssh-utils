@@ -7,9 +7,9 @@ public class UnixSudoCommandBuilder {
 			final UnixOptionEnum unixOptionEnum,
 			final String argument) {
 	
-		return UnixCommandBuilder.build(UnixCommandEnum.SUDO, 
+		return UnixCommandFormatter.build(UnixCommandEnum.SUDO, 
 				UnixOptionEnum.SHELL) + " " + 
-				UnixCommandBuilder.build(unixCommandEnum, 
+				UnixCommandFormatter.build(unixCommandEnum, 
 						unixOptionEnum, argument);
 		
 	}
@@ -18,7 +18,7 @@ public class UnixSudoCommandBuilder {
 	public static String build(
 			final String command) {
 	
-		return UnixCommandBuilder.build(UnixCommandEnum.SUDO, 
+		return UnixCommandFormatter.build(UnixCommandEnum.SUDO, 
 				UnixOptionEnum.SHELL) + " " + 
 				command;
 		

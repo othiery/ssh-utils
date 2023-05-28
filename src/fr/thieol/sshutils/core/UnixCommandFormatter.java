@@ -1,6 +1,6 @@
 package fr.thieol.sshutils.core;
 
-public class UnixCommandBuilder {
+public class UnixCommandFormatter {
 
 	public static final String SPACE = " ";
 	public static final String DOUBLE_DASH = "--";
@@ -21,7 +21,7 @@ public class UnixCommandBuilder {
 			final UnixOptionEnum unixOptionEnum
 			) {
 	
-		return unixCommandEnum.getCommand() + " --" + 
+		return unixCommandEnum.getCommand() + SPACE + DOUBLE_DASH +  
 				unixOptionEnum.getOption();
 		
 	}

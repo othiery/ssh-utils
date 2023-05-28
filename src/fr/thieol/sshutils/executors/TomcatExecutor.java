@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import fr.thieol.sshutils.core.Executor;
 import fr.thieol.sshutils.core.SshProperties;
-import fr.thieol.sshutils.core.UnixCommandBuilder;
+import fr.thieol.sshutils.core.UnixCommandFormatter;
 import fr.thieol.sshutils.core.UnixCommandEnum;
 import fr.thieol.sshutils.core.UnixPipeBuilder;
 import fr.thieol.sshutils.core.UnixSudoCommandBuilder;
@@ -19,7 +19,7 @@ public class TomcatExecutor extends Executor {
 		String result = execute(
 				UnixPipeBuilder.build(
 						"systemctl list-unit-files --type service -all", 
-						UnixCommandBuilder.build(
+						UnixCommandFormatter.build(
 								UnixCommandEnum.GREP,  "tomcat9.service")));
 		return result;
 	
@@ -28,9 +28,9 @@ public class TomcatExecutor extends Executor {
 	public boolean isTomcatRunning() throws IOException {
 		 String result = execute(
 				 UnixPipeBuilder.build(
-						 UnixCommandBuilder.build(
+						 UnixCommandFormatter.build(
 									UnixCommandEnum.PS,  "aux"), 
-						 UnixCommandBuilder.build(
+						 UnixCommandFormatter.build(
 									UnixCommandEnum.GREP,  "tomcat9"))); 
 
 		 if ( result.length() > 0 ) return true;
@@ -41,7 +41,7 @@ public class TomcatExecutor extends Executor {
 	public void stopTomcat(String password) throws IOException {
 		 execute(
 				 UnixPipeBuilder.build(
-						 UnixCommandBuilder.build(
+						 UnixCommandFormatter.build(
 									UnixCommandEnum.ECHO,  password), 
 						 "sudo -S systemctl stop tomcat9.service"));
 
@@ -51,7 +51,7 @@ public class TomcatExecutor extends Executor {
 	public void startTomcat(String password) throws IOException {
 		 execute(
 				 UnixPipeBuilder.build(
-					UnixCommandBuilder.build(
+					UnixCommandFormatter.build(
 						 UnixCommandEnum.ECHO,  password),  
 					UnixSudoCommandBuilder.build("systemctl start tomcat9.service")));
 
